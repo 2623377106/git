@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 基本的表格</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+</head>
+<body>
+
+<table class="table">
+    <caption>基本的表格布局</caption>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>角色名称</th>
+        <th>分配权限</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <form action="{:url('ru')}" method="post">
+    <tbody>
+    {foreach $data as $val}
+    <tr><input type="hidden" value="{$val.role_id}" name="rol_id">
+        <td>{$val.role_id}</td>
+        <td>{$val.role_name}</td>
+           <td>
+               <select name="aut_id" id="auth">
+                   {foreach $auth as $va}
+                   <option value="{$va.auth_id}">{$va.auth_name}</option>
+                   {/foreach}
+               </select>
+           </td>
+        <td><input type="submit" value="分配权限"></td>
+    </tr>
+    {/foreach}
+    </tbody>
+    </form>
+</table>
+
+</body>
+</html>
+

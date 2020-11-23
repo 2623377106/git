@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 基本的列表组</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1><a href="{:url('logindel')}">退出登录</a></h1>
+<form action="{:url('authadd')}" method="post">
+    权限添加：<input type="text" name="auth_name">
+    <input type="submit" value="添加">
+</form>
+<ul class="list-group">
+    {foreach $data as $val}
+    {if condition="$val.f==1 "}
+    &nbsp;<li class="list-group-item">{$val.auth_name}</li>
+    {else /}
+    <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$val.auth_name}</li>
+    {/if}
+    {/foreach}
+</ul>
+
+
+</body>
+</html>
